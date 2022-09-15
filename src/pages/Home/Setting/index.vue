@@ -10,7 +10,7 @@
       </n-space>
     </div>
 
-    <IconBtn :tip="$t('iconTip.refreshSetting')" @iclick="initQrCodeSetting">
+    <IconBtn :tip="$t('iconTip.refreshSetting')" @iclick="_initQrCodeSetting">
       <Refresh />
     </IconBtn>
 
@@ -165,6 +165,7 @@ import IconBtn from "../components/IconBtn.vue";
 import useShowSetting from "../hooks/useShowSetting";
 import UploadImg from "../components/UploadImg.vue";
 import useLocale from "../hooks/useLocale";
+import { useMessage } from "naive-ui";
 
 const {
   cornersSquareOptionsType,
@@ -175,7 +176,14 @@ const {
 
 const { toggleShowSetting } = useShowSetting();
 
-const { langOptions } = useLocale();
+const { t, langOptions } = useLocale();
+
+const message = useMessage();
+
+const _initQrCodeSetting = () => {
+  initQrCodeSetting();
+  message.success(t("message.resetSuccess"));
+};
 </script>
 
 <style>

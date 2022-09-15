@@ -56,6 +56,9 @@ const zh = {
     moreSetting: "更多设置",
     refreshSetting: "重新设置",
     closeSetting: "关闭",
+  },
+  message:{
+    resetSuccess: "重置完成",
   }
 };
 

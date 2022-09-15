@@ -56,6 +56,9 @@ const en = {
     moreSetting: "more settings",
     refreshSetting: "reset",
     closeSetting: "close",
+  },
+  message:{
+    resetSuccess: "reset complete",
   }
 };
 

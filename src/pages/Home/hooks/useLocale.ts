@@ -2,7 +2,7 @@ import store from "@/store/index";
 import { useI18n } from "vue-i18n";
 
 export default function useLocale(){
-  const {locale} = useI18n();
+  const {t, locale} = useI18n();
   watch(()=>store.locale,()=>{
     locale.value = store.locale;
   },{
@@ -21,6 +21,7 @@ export default function useLocale(){
   ];
 
   return {
+    t,
     langOptions,
   }
 }
