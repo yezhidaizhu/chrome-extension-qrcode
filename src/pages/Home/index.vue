@@ -9,11 +9,7 @@
         <InputUrl />
 
         <!-- 前往设置 -->
-        <div class="flex justify-end w-full px-2 -m-1">
-          <IconBtn tip="更多设置" @iclick="toggleShowSetting"
-            ><SettingsOutline
-          /></IconBtn>
-        </div>
+        <MoreSetting />
       </div>
     </div>
 
@@ -38,11 +34,10 @@
 import Setting from "./Setting/index.vue";
 import QrCode from "./components/QrCode.vue";
 import InputUrl from "./components/InputUrl.vue";
-import { SettingsOutline } from "@vicons/ionicons5";
 import useShowSetting from "./hooks/useShowSetting";
-import IconBtn from "./components/iconBtn.vue";
+import MoreSetting from "./components/MoreSetting.vue";
 
-const { showSetting, toggleShowSetting } = useShowSetting();
+const { showSetting } = useShowSetting();
 </script>
 
 <style scoped>

@@ -28,11 +28,13 @@ export function persistent(store: any) {
   function loadLocationStore() {
     const locaStore = Store.get(store_key);
     try {
-      // 只写入设置部分
+      // 只写入设置部分，语言部分
       const qrcodeSetting = locaStore?.qrcodeSetting;
+      const locale = locaStore?.locale;
 
       if (qrcodeSetting) {
         store.qrcodeSetting = qrcodeSetting;
+        store.locale = locale;
       }
     } catch (error) {
       console.error("persistent: 本地存储历史写入失败");

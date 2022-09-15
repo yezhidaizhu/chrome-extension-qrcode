@@ -7,8 +7,11 @@ const store = reactive({
   // 中心图片上传
   uploadfileList: [],
   centerImageBase64: undefined,
+
   // 二维码设置
   ...qrCodeSettingOpts(),
+  // 语言
+  locale: 'en',
 });
 
 // 持久化

@@ -5,7 +5,8 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import {NaiveUiResolver} from 'unplugin-vue-components/resolvers';
 import WindiCSS from 'vite-plugin-windicss';
-
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
+import { fileURLToPath } from 'url'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -21,6 +22,9 @@ export default defineConfig({
       ],
       dts: './src/auto-import.d.ts',
       imports: ['vue'],
+    }),
+    VueI18nPlugin({
+      include: path.resolve(path.dirname(fileURLToPath(import.meta.url)), './src/locales/**'),
     }),
   ],
   base:'./',
