@@ -1,76 +1,55 @@
-<script setup>
-import QRCode from 'qrcode';
-import QRCodeVue3 from "qrcode-vue3";
-
-const qrcodeRef = ref();
-// const url = ref('https://www.npmjs.com/package/qrcode');
-const url = ref('');
-
-const inputStatus = computed(()=>{
-  return !url.value ? "error" : "";
-});
-
-onMounted(async ()=>{
-  const tab =await getCurrentTab();
-  const _url = tab ? tab.url : "";
-
-  url.value = _url;
-
-  // watchEffect(()=>{
-  //   creatQrcode()
-  // })
-});
-
-// function creatQrcode(){
-//   const value = url.value || "请输入链接好吧";
-//   QRCode.toCanvas(qrcodeRef.value,value,{
-//     margin:1.5,
-//     width: 220,
-//   }, function (error) {
-//     if (error) console.error(error)
-//     console.log('success!');
-//   })
-// }
-
-async function getCurrentTab() {
-  let queryOptions = { active: true, lastFocusedWindow: true };
-  // `tab` will either be a `tabs.Tab` instance or `undefined`.
-  let [tab] = await chrome?.tabs?.query(queryOptions) || [];
-  
-  console.log(tab);
-  
-  return tab;
-}
-
-</script>
-
 <template>
-  <div id="qrcodebox" class=" w-60 p-2 flex flex-col gap-2 items-center ">
-    <!-- <canvas ref="qrcodeRef" id="qrcode" class="shadow border"></canvas> -->
-    <div :style="{width:'200px',height:'200px'}" class="shadow border">
-      <QRCodeVue3 :width="200"
-          :height="200"
-          :value="url"
-           />
+  <div class="flex transition transition-all duration-200">
+    <div id="qrcodebox" class="w-60 p-3 z-10">
+      <div class="sticky top-3 flex flex-col gap-3 items-center">
+        <!-- 二维码 -->
+        <QrCode />
+
+        <!-- 输入 -->
+        <InputUrl />
+
+        <!-- 前往设置 -->
+        <div class="flex justify-end w-full px-2 -m-1">
+          <IconBtn tip="更多设置" @iclick="toggleShowSetting"
+            ><SettingsOutline
+          /></IconBtn>
+        </div>
+      </div>
     </div>
 
-    <n-input
-      autofocus
-      v-model:value="url"
-      placeholder="请输入链接"
-      size="small"
-      type="textarea"
-      :autosize="{
-        minRows: 1,
-        maxRows: 3
-      }"
-      :status="inputStatus"
-    />
+    <!-- 设置 -->
+    <div
+      id="qrcodeSetting"
+      class="animate__animated w-72 overflow-hidden transition transition-all duration-100"
+      :class="
+        showSetting
+          ? 'animate__fadeInLeft w-60 h-auto '
+          : 'w-0 animate__fadeOutLeft h-0'
+      "
+    >
+      <div class="w-72 p-3">
+        <Setting />
+      </div>
+    </div>
   </div>
 </template>
 
-<style>
-#qrcodebox .n-input__textarea-el{
+<script setup>
+import Setting from "./Setting/index.vue";
+import QrCode from "./components/QrCode.vue";
+import InputUrl from "./components/InputUrl.vue";
+import { SettingsOutline } from "@vicons/ionicons5";
+import useShowSetting from "./hooks/useShowSetting";
+import IconBtn from "./components/iconBtn.vue";
+
+const { showSetting, toggleShowSetting } = useShowSetting();
+</script>
+
+<style scoped>
+#qrcodebox :deep(.n-input__textarea-el) {
   word-break: break-all !important;
+}
+#qrcodeSetting {
+  animation-duration: 0.3s;
 }
 </style>

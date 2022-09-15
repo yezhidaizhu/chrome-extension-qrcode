@@ -1,1 +1,20 @@
+// 滚动条
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border: none;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border: none;
+}
 
+*::-webkit-scrollbar-thumb {
+  background: rgb(220, 220, 220);
+  border-radius: 6px;
+  border: none;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
