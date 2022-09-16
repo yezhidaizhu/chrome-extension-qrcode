@@ -2,7 +2,7 @@
   <n-input
     autofocus
     v-model:value="store.url"
-    placeholder="请输入链接"
+    :placeholder="$t('inputPlaceholder.inputData')"
     size="small"
     type="textarea"
     :autosize="{

@@ -53,12 +53,16 @@ const en = {
     }
   },
   iconTip:{
+    downloadQrCode: "download QRCode",
     moreSetting: "more settings",
     refreshSetting: "reset",
     closeSetting: "close",
   },
   message:{
     resetSuccess: "reset complete",
+  },
+  inputPlaceholder:{
+    inputData:"please enter"
   }
 };
 

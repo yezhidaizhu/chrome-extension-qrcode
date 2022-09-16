@@ -1,5 +1,5 @@
 <template>
-  <n-popover trigger="hover" :delay="800">
+  <n-popover trigger="hover" :delay="1500">
     <template #trigger>
       <n-button secondary circle size="tiny" @click="$emit('iclick')">
         <template #icon>

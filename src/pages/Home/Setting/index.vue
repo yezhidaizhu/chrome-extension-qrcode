@@ -18,7 +18,7 @@
       :tip="$t('iconTip.closeSetting')"
       @iclick="toggleShowSetting(false)"
     >
-      <CloseCircle />
+      <CloseCircle color="#ff6f6f" />
     </IconBtn>
   </div>
 

@@ -53,12 +53,16 @@ const zh = {
     }
   },
   iconTip:{
+    downloadQrCode: "下载二维码",
     moreSetting: "更多设置",
     refreshSetting: "重新设置",
     closeSetting: "关闭",
   },
   message:{
     resetSuccess: "重置完成",
+  },
+  inputPlaceholder:{
+    inputData:"请输入"
   }
 };
 

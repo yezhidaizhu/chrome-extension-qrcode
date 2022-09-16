@@ -4,6 +4,7 @@
     class="shadow border flex justify-center items-center overflow-hidden"
   >
     <QRCodeVue3
+      ref="qrcodeRef"
       :key="key"
       :width="220"
       :height="220"
@@ -25,6 +26,15 @@ const qRCodeProps = computed(() => {
   const image = store.centerImageBase64;
   return { ..._qrcodeSetting, image };
 });
+
+const qrcodeRef = ref();
+
+watch(
+  () => qrcodeRef.value?.qrCode,
+  () => {
+    store.VQRCodeStyling = qrcodeRef.value?.qrCode;
+  }
+);
 
 const key = ref(1); // 用于更新用
 
