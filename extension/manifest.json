@@ -1,0 +1,20 @@
+{
+  "name": "quick QRCode",
+  "description": "Quickly generate QR code",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "action": {
+    "default_title": "qrcode",
+    "default_popup": "dist/index.html"
+  },
+  "icons": {
+    "16": "assets/16x16.png",
+    "32": "assets/32x32.png",
+    "48": "assets/48x48.png",
+    "128": "assets/128x128.png"
+  }
+}

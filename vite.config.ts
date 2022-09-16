@@ -7,7 +7,7 @@ import {NaiveUiResolver} from 'unplugin-vue-components/resolvers';
 import WindiCSS from 'vite-plugin-windicss';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 import { fileURLToPath } from 'url'
-// https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [
     vue(),
@@ -33,6 +33,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build:{
+    // 打包路劲
+    outDir: "extension/dist"
+  }
 })
 
 
