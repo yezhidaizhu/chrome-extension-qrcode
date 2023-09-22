@@ -1,5 +1,9 @@
 <template>
   <div class="flex justify-end gap-3 w-full px-2 -m-1">
+    <IconBtn :tip="$t('iconTip.qrcodeParser')" @iclick="$router.push('/scan')">
+      <ScanOutline />
+    </IconBtn>
+
     <IconBtn :tip="$t('iconTip.downloadQrCode')" @iclick="downloadQrCodeImg">
       <DownloadOutline />
     </IconBtn>
@@ -11,8 +15,8 @@
 </template>
 
 <script setup>
-import { SettingsOutline, DownloadOutline } from "@vicons/ionicons5";
-import IconBtn from "./iconBtn.vue";
+import { SettingsOutline, DownloadOutline, ScanOutline } from "@vicons/ionicons5";
+import IconBtn from "./IconBtn.vue";
 import useShowSetting from "../hooks/useShowSetting";
 import store from "@/store";
 
